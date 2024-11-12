@@ -5,14 +5,11 @@ USE projetotecmanage;
 -- Tabela de Laboratórios
 CREATE TABLE LABORATORIO (
     laboratorio_id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    localizacao VARCHAR(100),
-    data_entrada_pecas DATE,
-    quantidade_total_pecas INT DEFAULT 0
+    nome VARCHAR(100) NOT NULL
+    
 );
 
 SELECT * FROM LABORATORIO;
-
 
 -- Tabela de Máquinas
 CREATE TABLE MAQUINA (
