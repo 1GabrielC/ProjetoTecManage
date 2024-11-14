@@ -1,5 +1,5 @@
 -- Criação do banco de dados
-
+create database projetotecmanage;         
 USE projetotecmanage;
 
 -- Tabela de Laboratórios
@@ -33,16 +33,23 @@ CREATE TABLE PECAS (
     fabricante VARCHAR(50),
     quantidade_estoque INT NOT NULL DEFAULT 0
 );
+SELECT * FROM PECAS;
+
 
 -- Tabela de Consertos
 CREATE TABLE CONSERTO (
     conserto_id INT AUTO_INCREMENT PRIMARY KEY,
-    maquina_id INT NOT NULL,
     data DATE NOT NULL,
     tipo ENUM('corretiva', 'preventiva') NOT NULL,
-    descricao TEXT,
-    FOREIGN KEY (maquina_id) REFERENCES MAQUINA(maquina_id) ON DELETE CASCADE
+    descricao TEXT
+    
 );
+ALTER TABLE CONSERTO
+ADD COLUMN peca_id INT,
+ADD CONSTRAINT fk_peca_id FOREIGN KEY (peca_id) REFERENCES PECAS(peca_id) ON DELETE CASCADE;
+
+SELECT * FROM CONSERTO;
+
 
 -- Tabela de Manutenção
 CREATE TABLE MANUTENCAO (
